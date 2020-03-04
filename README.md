@@ -50,12 +50,13 @@ const animation = composeAnimation({
 
 ### Duplicating Animations
 
-You can call `.duplicate()` on your composed animation to create an identical copy of the animation. This can be useful when you want to have a series of identical animations beginning at different junctures using `Animated.stagger` and don't want to write out identical configs multiple times.
+You can call `.duplicate()` on your composed animation to create a copy of the animation pointed to new `Animated.Value`s. This can be useful when you want to have a series of identical animations beginning at different junctures using `Animated.stagger` and don't want to write out the same config multiple times.
 
 ```
 const animation_1 = composeAnimation({
   steps: [
     { rotate: { to: 360, duration: 1000 } },
+    { translateX: { to: 100, duration: 300, easing: Easing.sin } },
   ],
 })
 const animation_2 = animation_1.duplicate()
@@ -63,6 +64,20 @@ const animation_3 = animation_1.duplicate()
 ...
 
 Animated.stagger(250, [animation_1, animation_2, animation_3]).start()
+
+```
+
+### Reusing Previous Values
+
+You can reuse values from previous animation steps if you want to programmatically determine the next value for a style property. Instead of passing a number in a step's `to` property, you can make it a callback function, which takes the previous value and returns a new value.
+
+```
+const animation = composeAnimation({
+  steps: [
+    { rotate: { to: Math.random() * 360, duration: 300 } },
+    { rotate: { to: prev => 360 - prev, duration: 300 } },
+  ],
+})
 
 ```
 
