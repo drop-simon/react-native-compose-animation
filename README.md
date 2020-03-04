@@ -83,7 +83,7 @@ const animation = composeAnimation({
 
 ### Mixing In Other Animations
 
-In addition to just passing in object configurations as the steps of your animations, you can also pass in other `Animated.CompositeAnimation`s. This can be useful if you want an animation to partially run, perform another animation, then finish the initial animation. It's also possible for you to extract a composed animations steps for reuse. For example, given:
+In addition to just passing in object configurations as the steps of your animations, you can also pass in other `Animated.CompositeAnimation`s. This can be useful if you want an animation to partially run, perform another animation, then finish the initial animation. It's also possible for you to extract the steps from an animation built with `composeAnimation` for reuse. For example, given:
 
 ```
 const someAnimation = composeAnimation({
