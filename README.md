@@ -141,7 +141,3 @@ opacity
 ```
 
 Future iterations of this helper function may inlude the ability to animate non-natively-animatable style props, but for now is restricted to this list to enforce the use of `useNativeDriver`. Transform style props are applied in the order listed above. This produces the most predictable results.
-
-```
-
-```
