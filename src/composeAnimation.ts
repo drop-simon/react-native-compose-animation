@@ -14,7 +14,6 @@ import {
   createDefaultOutputMap,
   createInitialAnimatedValuesMap,
   createValuesMap,
-  unpackSteps,
 } from './utils'
 
 export default function composeAnimation({
@@ -57,9 +56,9 @@ export default function composeAnimation({
     )
   }
 
-  // get all the nested steps where the step is already the return value of composeAnimation
-  const unpackedSteps = unpackSteps(steps)
-  const processedSteps = unpackedSteps.map(processStep)
+  // convert all configs to Animated.CompositeAnimations
+  const processedSteps = steps.map(processStep)
+  // sequence resulting composites
   const finalComposite = Animated.sequence(processedSteps)
 
   const compositeTransform = TRANSFORM_PROPERTIES.map(property => {

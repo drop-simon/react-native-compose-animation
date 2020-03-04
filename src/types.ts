@@ -22,11 +22,6 @@ export type AnimationConfiguration = Partial<
   AnimatablePropertyMap<SingleTransformConfiguration>
 >
 
-export type AnimationStep =
-  | AnimationConfiguration
-  | Animated.CompositeAnimation
-  | (Animated.CompositeAnimation & {
-      steps: AnimationSteps
-    })
+export type AnimationStep = AnimationConfiguration | Animated.CompositeAnimation
 
 export type AnimationSteps = AnimationStep[]

@@ -1,23 +1,6 @@
 import { Animated } from 'react-native'
 import { NATIVELY_ANIMATABLE_STYLE_PROPERTIES } from './constants'
-import {
-  AnimationSteps,
-  AnimationConfiguration,
-  AnimatablePropertyMap,
-  NativelyAnimatableProperty,
-} from './types'
-
-export const unpackSteps = (
-  stepsToUnpack: AnimationSteps
-): (AnimationConfiguration | Animated.CompositeAnimation)[] =>
-  stepsToUnpack.reduce(
-    (acc, step) =>
-      // if the step is the return value of composeAnimation, we extract its raw steps
-      'steps' in step
-        ? acc.concat(...unpackSteps(step.steps))
-        : acc.concat(step),
-    []
-  )
+import { AnimatablePropertyMap, NativelyAnimatableProperty } from './types'
 
 export const createValuesMap = <
   D extends (k?: NativelyAnimatableProperty) => any,
