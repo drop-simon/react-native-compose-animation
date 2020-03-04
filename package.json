@@ -1,5 +1,5 @@
 {
-  "name": "@drop-simon/react-native-animated-progress-circle",
+  "name": "react-native-animated-progress-circle",
   "version": "1.0.0",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
