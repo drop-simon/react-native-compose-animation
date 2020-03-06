@@ -1,6 +1,5 @@
 import { EasingFunction, Animated } from 'react-native'
 import { NATIVELY_ANIMATABLE_STYLE_PROPERTIES } from './constants'
-import composeAnimation from './composeAnimation'
 
 export type NativelyAnimatableProperty = typeof NATIVELY_ANIMATABLE_STYLE_PROPERTIES[number]
 
@@ -18,10 +17,8 @@ type SingleTransformConfiguration = {
   easing?: EasingFunction
 }
 
-export type AnimationConfiguration = Partial<
-  AnimatablePropertyMap<SingleTransformConfiguration>
->
-
-export type AnimationStep = AnimationConfiguration | Animated.CompositeAnimation
+export type AnimationStep =
+  | Partial<AnimatablePropertyMap<SingleTransformConfiguration>>
+  | Animated.CompositeAnimation
 
 export type AnimationSteps = AnimationStep[]

@@ -1,9 +1,9 @@
 {
-  "version": "1.6.2",
   "compilerOptions": {
+    "target": "es5",
     "module": "commonjs",
-    "declaration": true,
-    "outDir": "lib/"
-  },
-  "files": ["./src/index.ts"]
+    "esModuleInterop": true,
+    "lib": ["es2015"],
+    "declaration": true
+  }
 }

@@ -3,10 +3,10 @@
   "version": "1.0.3",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
-  "react-native": "src/index.js",
+  "react-native": "src/index.ts",
   "files": [
-    "lib/",
-    "src/"
+    "src",
+    "lib"
   ],
   "repository": "https://github.com/drop-simon/react-native-compose-animation",
   "author": "drop-simon <drop-simon@joindrop.com>",
@@ -21,27 +21,17 @@
     "@types/react-native": "^0.61.17",
     "typescript": "^3.8.3"
   },
+  "types": "lib/typescript/index.d.ts",
+  "scripts": {
+    "prepare": "bob build"
+  },
   "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
     "targets": [
-      [
-        "aar",
-        {
-          "reverseJetify": true
-        }
-      ],
-      [
-        "commonjs",
-        {
-          "copyFlow": true
-        }
-      ],
+      "commonjs",
       "module",
       "typescript"
     ]
-  },
-  "scripts": {
-    "prepare": "yarn bob build"
   }
 }
